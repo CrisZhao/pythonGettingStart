@@ -4,6 +4,12 @@ import os
 replaceList = [("room", "space"),
                ("Room", "Space"),
                ("ROOM", "SPACE")]
+header = """
+/*
+ * Copyright (C) Shanghai Raiyun Financial Technologies Inc.  All Rights Reserved.
+ */
+"""
+destFile = "d:\\codes.txt"
 
 def loadDirs(rootDir): 
     for lists in os.listdir(rootDir): 
@@ -12,22 +18,37 @@ def loadDirs(rootDir):
         if path.find('.svn') != -1:
         	continue
         if os.path.isfile(path):
-         	# print 'this is file'
-         	doreplace(path)
+         	# doreplace(path)
+            appendFileContent(path)
         if os.path.isdir(path): 
-            loadDirs(path) 
+            loadDirs(path)
+def readFileContent(fileExpression):
+    print 'start readfile----------------','filename',fileExpression
+    fd = open(fileExpression,'r')
+    content = fd.read()
+    fd.close
+    return content
 def doreplace(fileExpression):
     # fileExpression = raw_input ("Please input file to be replaced :")
     print 'start doreplace----------------','filename',fileExpression
-    fd = open(fileExpression,'r')
-    content = fd.read()
+    content = readFileContent(fileExpression)
     # print content
     for oldValue, newValue in replaceList:
     	content = content.replace(oldValue, newValue)
     # print content
-    fd.close
     fd = open(fileExpression,'w')
     fd.write(content)
     fd.close
-fileExpression = raw_input ("Please input dir to be processed :")
-loadDirs(fileExpression)
+def appendFileContent(fileExpression):
+    print 'appendFileContent---------',fileExpression
+    content = readFileContent(destFile)
+    content += header
+    content += readFileContent(fileExpression)
+    f = open(destFile,'w')
+    f.write(content)
+    f.close
+def replaceKeyWordsInDir():
+    fileExpression = raw_input ("Please input dir to be processed :")
+    loadDirs(fileExpression)
+replaceKeyWordsInDir()
+    
