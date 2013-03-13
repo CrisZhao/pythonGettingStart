@@ -8,7 +8,7 @@ from email.Utils import COMMASPACE, formatdate
 MAIL_LIST = ["qc.zhao@raiyun.com"]
 MAIL_HOST = "smtp.raiyun.com"
 MAIL_USER = "qc.zhao"
-MAIL_PASS = "**"
+MAIL_PASS = "zqc209213"
 MAIL_SENDER = "qc.zhao@raiyun.com"
 
 

@@ -7,15 +7,17 @@ import time,datetime
 from sendMail import send_mail
 
 urls = ["www.raiyun.com:8888/DashBoard"]
+testTomcatRes = "/RaiyunService/json/template"
 
 def http_open(host, port, resource):
     print host,port,resource
     # if not resource.startwith("/")
     #     resource = "/" +resource
     try:
-        conn = httplib.HTTPConnection(host, port, timeout = 5)
+        conn = httplib.HTTPConnection(host, port, timeout = 5*60)
         print "http connection created successfully"
-        conn.request("GET", resource)
+        # conn.request("GET", resource)
+        conn.request("GET", testTomcatRes)
         r=conn.getresponse()
         return r.status  
     except Exception,e:
@@ -57,7 +59,7 @@ def main():
     while(True):
         print u"执行时间:%s"%(datetime.datetime.now())
         for url in urls:
-            thread = check(url,10)
+            thread = check(url,1*60)
             thread.start()
             thread_list.append(thread)
         time.sleep(30*60)

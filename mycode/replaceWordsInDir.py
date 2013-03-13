@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*- 
 import os
 
-replaceList = [("room", "space"),
-               ("Room", "Space"),
-               ("ROOM", "SPACE")]
+replaceList = [("><", ">\n<")]
 header = """
 /*
  * Copyright (C) Shanghai Raiyun Financial Technologies Inc.  All Rights Reserved.
@@ -18,8 +16,8 @@ def loadDirs(rootDir):
         if path.find('.svn') != -1:
         	continue
         if os.path.isfile(path):
-         	# doreplace(path)
-            appendFileContent(path)
+         	doreplace(path)
+            # appendFileContent(path)
         if os.path.isdir(path): 
             loadDirs(path)
 def readFileContent(fileExpression):
