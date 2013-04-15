@@ -29,6 +29,6 @@ def send_mail(text):
         print "sendmail success"
         return True
     except Exception, e:
-        print "send mail failed"
+        print "send mail failed hi"
         print e
         return False
