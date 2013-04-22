@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*- 
 import os
 
-replaceList = [("><", ">\n<")]
+replaceList = [("com.raiyun.common.finance.entity.curve", "com.raiyun.common.business.entity.curve")
+               , ("com.raiyun.common.finance.entity","com.raiyun.common.business.entity")]
 header = """
 /*
  * Copyright (C) Shanghai Raiyun Financial Technologies Inc.  All Rights Reserved.

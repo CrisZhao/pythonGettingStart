@@ -5,11 +5,11 @@ from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
 from email.Utils import COMMASPACE, formatdate 
 
-MAIL_LIST = ["qc.zhao@raiyun.com"]
-MAIL_HOST = "smtp.raiyun.com"
-MAIL_USER = "qc.zhao"
-MAIL_PASS = "zqc209213"
-MAIL_SENDER = "qc.zhao@raiyun.com"
+MAIL_LIST = ["user@yourhost.com"]
+MAIL_HOST = "smtp.yourhost.com"
+MAIL_USER = "yourhost"
+MAIL_PASS = "user"
+MAIL_SENDER = "youremailaddress"
 
 
 def send_mail(text): 
